@@ -1,0 +1,2 @@
+Tests: clasp0, clasp1, clasp2
+Depends: gringo, @

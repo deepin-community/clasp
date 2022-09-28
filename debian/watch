@@ -1,0 +1,12 @@
+# watch control file for uscan
+
+# Compulsory line, this is a version 4 file
+version=4
+
+# tarballs in
+# /potassco/clasp/releases/download/vN.N.N/clasp-N.N.N-source.tar.gz
+# contain the complete source archive.
+# /potassco/clasp/tags/vN.N.N.tar.gz does not merge code from
+# /potassco/libpotassco submodule
+opts=filenamemangle=s/.+\/clasp-(\d\.\d\.\d)-source\.tar\.gz/clasp-$1\.tar\.gz/ \
+   https://github.com/potassco/clasp/releases /potassco/clasp/releases/download/v(\d\.\d\.\d)/clasp-\d\.\d\.\d-source\.tar\.gz

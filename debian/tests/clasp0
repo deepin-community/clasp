@@ -1,0 +1,15 @@
+#!/bin/bash
+# clasp: we must print one answer set and exit in 10
+# Author: Thomas Krennwallner <tkren@kr.tuwien.ac.at>
+# Date: 2017-05-07
+
+set -o pipefail
+
+{ gringo <<EOF
+a :- not b.
+b :- not a.
+EOF
+} | clasp
+
+result=$?
+test $result -eq 10

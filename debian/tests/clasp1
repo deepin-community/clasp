@@ -1,0 +1,11 @@
+#!/bin/bash
+# clasp: gbie1.lp sat_01.lp is satisfiable
+# Author: Thomas Krennwallner <tkren@kr.tuwien.ac.at>
+# Date: 2017-05-07
+
+set -o pipefail
+
+gringo /usr/share/doc/gringo/examples/gringo/gbie/{gbie1.lp,instances/sat_01.lp} | clasp
+
+result=$?
+test $result -eq 30

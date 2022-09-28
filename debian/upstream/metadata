@@ -1,0 +1,18 @@
+Bug-Database: https://github.com/potassco/clasp/issues
+Bug-Submit: https://github.com/potassco/clasp/issues/new
+Repository: https://github.com/potassco/clasp.git
+Repository-Browse: https://github.com/potassco/clasp
+Changelog: https://github.com/potassco/clasp/blob/master/CHANGES
+Contact: https://sourceforge.net/p/potassco/mailman/potassco-users/
+FAQ: https://potassco.org/doc/faq/
+Name: clasp
+Other-References: https://potassco.org/doc/
+Reference:
+  - Author: Martin Gebser and Benjamin Kaufmann and Torsten Schaub
+    Title: "Conflict-Driven Answer Set Solving: From Theory to Practice"
+    Journal: Artificial Intelligence
+    Year: 2012
+    Number: 187–188
+    Pages: 52–89
+    DOI: 10.1016/j.artint.2012.04.001
+    URL: https://www.cs.uni-potsdam.de/wv/publications/DBLP_journals/ai/GebserKS12.pdf

@@ -1,0 +1,602 @@
+clasp (3.3.5-4) unstable; urgency=medium
+
+  * Bug fix: "non-standard gcc/g++ used for build (gcc-9)", thanks to
+    Matthias Klose (Closes: #978509).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 28 Dec 2020 12:26:04 +0000
+
+clasp (3.3.5-3) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 27 Dec 2020 01:15:36 +0000
+
+clasp (3.3.5-2) experimental; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Fix day-of-week for changelog entry 1.3.2-2.
+
+  [ Thomas Krennwallner ]
+  * debian/control: bump Build-Depends to debhelper-compat 13
+  * debian/control: bump Standards-version to 4.5.1 (no changes required)
+  * compile with g++-10 >= 10.2.1
+  * Set upstream metadata fields: Changelog, Contact, FAQ, Name,
+    Other-References, Reference
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 26 Dec 2020 21:25:44 +0000
+
+clasp (3.3.5-1) unstable; urgency=medium
+
+  * New upstream version 3.3.5
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 15 Mar 2020 14:27:36 -0400
+
+clasp (3.3.4-4) unstable; urgency=medium
+
+  * debian/patches: add link-libatomic-check-gcc.patch
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 13 Mar 2020 06:22:27 -0400
+
+clasp (3.3.4-3) unstable; urgency=medium
+
+  * compile with g++-9
+  * Bug fix: "non-standard gcc/g++ used for build (gcc-8)", thanks to
+    Matthias Klose (Closes: #944176).
+  * debian/rules: don't confuse build target with build directory, disable
+    libatomic checks
+  * debian/control: bump Standards-Version to 4.5.0 (no changes required),
+    set Rules-Requires-Root to no
+  * setup debhelper-compat 12
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 12 Mar 2020 08:17:17 -0400
+
+clasp (3.3.4-2) unstable; urgency=medium
+
+  * debian/control: bump Standards-Version to 4.2.1
+  * Fix reproducible builds FTBFS
+    - debian/control: Build-Depends on g++-8
+    - debian/rules: force g++-8
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 04 Nov 2018 16:03:57 +0100
+
+clasp (3.3.4-1) unstable; urgency=medium
+
+  * New upstream version 3.3.4
+  * debian/control: bump Standards-Version to 4.1.4
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 30 Jun 2018 08:31:27 +0200
+
+clasp (3.3.3-3) unstable; urgency=medium
+
+  * debian/rules: check DEB_BUILD_PROFILES against nocheck
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 05 Feb 2018 20:22:21 +0100
+
+clasp (3.3.3-2) unstable; urgency=medium
+
+  * update debian/control and debian/compat
+    + update Vcs-Git and Vcs-Browser for salsa
+    + bump Standards-Version to 4.1.3
+    + bump debhelper compatibility version to 11
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 03 Feb 2018 13:42:01 +0100
+
+clasp (3.3.3-1) unstable; urgency=medium
+
+  * New upstream version 3.3.3
+  * debian/watch: download from /releases/download/vN.N.N
+  * drop upstream applied clasp-remove-wrong-assertion.patch
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 12 Nov 2017 09:11:47 +0100
+
+clasp (3.3.2-4) unstable; urgency=medium
+
+  * debian/control fixes, add Build-Depends on recent g++-7
+    + bump Standards-Version to 4.1.1
+    + Build-Depends on g++-7 >= 7.2.0-3 for fixed #871514
+    + fix priority-extra-is-replaced-by-priority-optional
+    + fix unnecessary-testsuite-autopkgtest-header
+  * debian/rules: force build with g++-7
+  * add clasp-remove-wrong-assertion.patch from upstream commit 02c6d85
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 04 Nov 2017 10:45:45 +0100
+
+clasp (3.3.2-3) unstable; urgency=medium
+
+  * Switch to g++-6 to work around mips64el FTBFS.
+    - debian/rules: force CXX to g++-6
+    - debian/control: Build-Depends on g++-6
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 29 Aug 2017 07:21:44 +0200
+
+clasp (3.3.2-2) unstable; urgency=medium
+
+  * Bug fix: "clasp FTBFS on armel: undefined reference to
+    `__atomic_load_8&#39;", thanks to Adrian Bunk (Closes: #872549).
+  * debian/rules: link with libatomic on armel
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 21 Aug 2017 08:31:52 +0200
+
+clasp (3.3.2-1) unstable; urgency=medium
+
+  * New upstream version 3.3.2
+  * debian/control: Bump Standards-Version to 4.0.1
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 18 Aug 2017 07:02:43 +0200
+
+clasp (3.3.0-1) unstable; urgency=medium
+
+  * New upstream version 3.3.0
+  * debian/copyright: clasp switched to MIT, and so does the packaging
+  * debian/rules: build with cmake
+  * debian/docs: use README.md
+  * set debhelper compatibility level to 10
+  * debian/control:
+    - Build-Depends on cmake, drop pkg-config
+    - add Testsuite: autopkgtest
+  * debian/tests:
+    - add dep8 testsuite control
+    - add clasp0, clasp1, clasp2 tests
+  * drop reproducible-build.patch, clasp uses cmake as build system now
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 07 May 2017 15:02:29 +0200
+
+clasp (3.2.2-1) unstable; urgency=medium
+
+  * New upstream version 3.2.2
+  * drop clasp-alpha-fpu-getcw.patch, already applied upstream
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 01 Feb 2017 11:52:16 +0100
+
+clasp (3.2.1-3) unstable; urgency=medium
+
+  * debian/rules: enable threads on all archs, use LDFLAGS to inject
+    -latomic on archs that need it
+  * fix FTBFS on alpha: do not define FPU_SWITCH_DOUBLE on alpha,
+    _FPU_GETCW and friends are undefined on this arch
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 17 Dec 2016 07:55:33 +0100
+
+clasp (3.2.1-2) unstable; urgency=medium
+
+  * debian/rules: disable threads on powerpc,powerpcspe,m68k,mips,mipsel
+  * debian/control: use https
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 03 Dec 2016 11:06:00 +0100
+
+clasp (3.2.1-1) unstable; urgency=medium
+
+  * New upstream version 3.2.1
+  * watch clasp releases on github
+  * debian/copyright: update copyright year and github source
+  * debian/control
+    - Build-Depends on g++ >= 4:6.1.1 replaces libtbb-dev
+    - point Homepage to http://www.potassco.org
+  * debian/rules: drop libtbb-dev and use c++11 multi-threading
+  * clasp-manpage.patch: point to http://www.potassco.org/clasp
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 01 Dec 2016 08:22:07 +0100
+
+clasp (3.1.5-1) unstable; urgency=medium
+
+  * New upstream version 3.1.5
+  * Remove parallel solve patch introduced in clasp 3.1.4-2
+  * Bug fix: "please make the build reproducible", thanks to Reiner
+    Herrmann (Closes: #828971)
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 04 Sep 2016 09:54:27 +0200
+
+clasp (3.1.4-2) unstable; urgency=medium
+
+  * Add patch to fix wrong number of optimal models in parallel mode
+    (upstream bug 116)
+  * Bump Standards-Version to 3.9.8
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 01 May 2016 08:51:17 +0200
+
+clasp (3.1.4-1) unstable; urgency=medium
+
+  * Imported Upstream version 3.1.4
+  * Remove g++5 patch introduced in clasp 3.1.3-2
+  * Fix dep5-copyright-license-name-not-unique
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 20 Dec 2015 12:06:30 +0100
+
+clasp (3.1.3-2) unstable; urgency=medium
+
+  * Circumvent g++-5 loop code generation bug.
+  * Bug fix: "aspcud fails to find solution if optimization criteria are
+    passed for some problems", thanks to Johannes Schauer (Closes:
+    #800526).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 05 Oct 2015 07:43:55 +0200
+
+clasp (3.1.3-1) unstable; urgency=medium
+
+  * Imported Upstream version 3.1.3
+  * debian/control: Add pkg-config (>= 0.28) to Build-Depends
+  * debian/rules: Use pkg-config to get libdir / includedir of tbb: fixes
+    "FTBFS: Error: TBB library path not set or 'libtbb.{so,dylib}' not
+    found!", thanks to Chris Lamb (Closes: #799989).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 26 Sep 2015 08:57:05 +0200
+
+clasp (3.1.2-1) unstable; urgency=medium
+
+  * Imported Upstream version 3.1.2
+  * Fix dep5-copyright-license-name-not-unique and
+    missing-license-paragraph-in-dep5-copyright lintian warnings.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 12 May 2015 07:18:25 +0200
+
+clasp (3.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 3.9.6.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 26 Nov 2014 08:44:17 +0100
+
+clasp (3.1.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Remove Suggests on potassco-guide
+  * Setup git repository to use git-buildpackage.
+  * Import upstream sources with git-import-orig --pristine-tar --uscan.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 18 Aug 2014 13:00:07 +0200
+
+clasp (3.0.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Fix Vcs fields to use anonscm.debian.org.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 07 Aug 2014 11:53:54 +0200
+
+clasp (3.0.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 19 May 2014 17:48:23 +0200
+
+clasp (3.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 24 Apr 2014 11:26:44 +0200
+
+clasp (3.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 30 Mar 2014 07:34:40 +0200
+
+clasp (3.0.2-2) unstable; urgency=low
+
+  * Bug fix: "fix up TBB handling for ppc64el", thanks to Colin Watson
+    (Closes: #742514).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 25 Mar 2014 07:27:42 +0100
+
+clasp (3.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 17 Mar 2014 17:11:58 +0100
+
+clasp (3.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bug fix: "3.0 cannot solve some problems solved by 2.1.4", thanks to
+    Julian Andres Klode (Closes: #739628).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 25 Feb 2014 17:04:16 +0100
+
+clasp (3.0.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules: Call configure.sh without --with-claspre.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 16 Feb 2014 11:19:35 +0100
+
+clasp (2.1.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 3.9.5.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 11 Feb 2014 12:37:05 +0100
+
+clasp (2.1.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 13 Dec 2013 11:44:18 +0100
+
+clasp (2.1.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Update copyright years.
+  * debian/control: Remove DM-Upload-Allowed.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 21 May 2013 09:22:08 +0200
+
+clasp (2.1.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 3.9.4 and Build-Depends on
+    libtbb-dev >= 4.0+r233.
+  * debian/copyright: Update copyright years.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 28 Nov 2012 10:35:53 +0100
+
+clasp (2.1.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Fix Format URL.
+  * debian/rules: Add hardening support.
+  * debian/gcc-4.7.patch: Remove unnecessary patch.
+  * debian/control: Bump Standards-Version to 3.9.3.1 and Build-Depends on
+    dephelper >= 9.
+  * debian/compat: Bump to 9.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 27 Aug 2012 20:20:04 +0200
+
+clasp (2.0.6-2) unstable; urgency=low
+
+  * Team upload
+  * Apply patch to FTBFS with gcc-4.7, thanks to Ilya Barygin (Closes: #674184)
+
+ -- Dmitrijs Ledkovs <xnox@debian.org>  Sun, 27 May 2012 15:41:47 +0100
+
+clasp (2.0.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 3.9.3.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 04 Apr 2012 06:35:31 +0200
+
+clasp (2.0.5-1ubuntu1~oneiric2) oneiric; urgency=low
+
+  * Upload to ppa:~tkren/asp.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 10 Feb 2012 09:01:57 +0100
+
+clasp (2.0.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 29 Jan 2012 20:27:04 +0100
+
+clasp (2.0.4-1ubuntu1~oneiric1) oneiric; urgency=low
+
+  * Upload to ppa:~tkren/asp.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 30 Nov 2011 06:36:04 +0100
+
+clasp (2.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules: Override all standard targets.
+  * debian/patches/clasp-makefile.patch: Remove.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 29 Nov 2011 18:29:33 +0100
+
+clasp (2.0.3-4ubuntu1~oneiric1) oneiric; urgency=low
+
+  * Upload to ppa:~tkren/asp.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 18 Oct 2011 13:04:50 +0200
+
+clasp (2.0.3-4) unstable; urgency=low
+
+  * debian/control: Build-Depends on libtbb-dev >= 3.0+r018, version 2.2
+    is not supported.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 17 Oct 2011 07:52:01 +0200
+
+clasp (2.0.3-3) unstable; urgency=low
+
+  * debian/control: Do not Build-Depends on libtbb-dev with i386, see
+    http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642248.
+  * debian/copyright: Fix obsolete-field-in-dep5-copyright and
+    unversioned-copyright-format-uri lintian warnings.
+  * debian/rules: Only set WITH_TBB for amd64, ia64, ppc64.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 25 Sep 2011 21:05:22 +0200
+
+clasp (2.0.3-2) unstable; urgency=low
+
+  * Bug fixed with new upstream release: "Segfaults with --pre argument
+    upon certain input", thanks to Joachim Breitner (Closes: #636772).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 28 Aug 2011 08:09:00 +0200
+
+clasp (2.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Fix year.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 24 Aug 2011 10:12:53 +0200
+
+clasp (2.0.2-1ubuntu1~oneiric1) oneiric; urgency=low
+
+  * Upload to ppa:~tkren/asp.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 01 Jul 2011 06:49:46 +0200
+
+clasp (2.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/clasp-ld-as-needed.patch: Remove.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 01 Jul 2011 05:25:39 +0200
+
+clasp (2.0.1-2) unstable; urgency=low
+
+  * debian/control: Setup as Debian Science project.
+    - Set Maintainer to Debian Science Maintainers and Uploaders to Thomas
+      Krennwallner.
+    - Set DM-Upload-Allowed to yes.
+    - Convert bzr repository to git and use Vcs-Git and Vcs-Browser
+    accourdingly.
+  * debian/patches/clasp-ld-as-needed.patch: Bug fix: "FTBFS with ld
+    --as-needed", thanks to stefanor@debian.org; (Closes: #631270).
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 22 Jun 2011 19:44:48 +0200
+
+clasp (2.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 3.9.2.
+  * debian/patches/clasp-istreameof.patch debian/patches/clasp-rpath.patch:
+    Remove.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 27 Apr 2011 10:50:10 +0200
+
+clasp (2.0.0-3) unstable; urgency=low
+
+  * debian/patches/clasp-istreameof.patch: Fix unsigned conversion
+    bug. (Closes: #623850)
+  * debian/control: Conditionally Build-Depends on libtbb-dev, it is only
+    available on amd64,i386,ia64,ppc64.
+  * debian/patches/clasp-makefile.patch: Allow for non-multithreading
+    builds and install clasp.
+  * debian/rules: Check for linux amd64,i386,ia64,ppc64 and invoke make
+    accourdingly.
+  * debian/install: Remove as we cannot know where we are going to build
+    upfront.
+  * debian/watch: Fix lintian debian-watch-contains-dh_make-template.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 23 Apr 2011 12:30:18 +0200
+
+clasp (2.0.0-2) unstable; urgency=low
+
+  * Upload to Debian. (Closes: #623599)
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 21 Apr 2011 20:24:41 +0200
+
+clasp (2.0.0-1~maverick1) maverick; urgency=low
+
+  * New upstream release.
+  * debian/patches/clasp-makefile.patch: Refreshed for multi-threading
+    support.
+  * debian/patches/clasp-rpath.patch: Fix lintian error
+    binary-or-shlib-defines-rpath.
+  * debian/control: Build-Depends on libtbb-dev.
+  * debian/install: Install MT binary.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 21 Apr 2011 19:35:27 +0200
+
+clasp (1.3.8-1~maverick1) maverick; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 21 Apr 2011 18:55:09 +0200
+
+clasp (1.3.7-2) unstable; urgency=low
+
+  * debian/copyright: Convert to DEP-5 format and add missing licenses.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Mon, 28 Feb 2011 17:44:55 +0100
+
+clasp (1.3.7-1~maverick1) maverick; urgency=low
+
+  * New upstream version.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 17 Feb 2011 08:20:03 +0100
+
+clasp (1.3.6-3) unstable; urgency=low
+
+  * Filed ITP. (Closes: #605877)
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 05 Dec 2010 17:56:39 +0100
+
+clasp (1.3.6-2) unstable; urgency=low
+
+  * Upload to mentors.debian.net.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 20 Nov 2010 09:25:52 +0100
+
+clasp (1.3.6-1~maverick1) maverick; urgency=low
+
+  * New upstream version.
+  * debian/copyright: Fix copyright information.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 19 Nov 2010 21:42:10 +0100
+
+clasp (1.3.5-3~maverick1) maverick; urgency=low
+
+  * Add dirs and install file.
+  * Bump Priority back to extra.
+  * Fix Build-Depends.
+  * Add override_dh_installchangelogs to rules.
+  * Remove README.source.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 20 Oct 2010 06:31:54 +0200
+
+clasp (1.3.5-2~maverick1) maverick; urgency=low
+
+  * Tag distro-series.
+
+  * Fix Standards-Version and Priority.
+
+  * Suggest potassco-guide.
+
+  * Fix missing changelog.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 09 Oct 2010 16:15:39 +0200
+
+clasp (1.3.5-1) lucid; urgency=low
+
+  * New upstream version.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sun, 26 Sep 2010 17:41:30 +0200
+
+clasp (1.3.4-1) lucid; urgency=low
+
+  * New upstream version.
+
+  * Add claspre support.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 16 Jun 2010 11:58:47 +0200
+
+clasp (1.3.3-4) lucid; urgency=low
+
+  * Switch to dpkg-source 3.0 (quilt) format.
+
+  * Recommend gringo.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 05 Jun 2010 07:36:19 +0200
+
+clasp (1.3.3-3) lucid; urgency=low
+
+  * Added watch file.
+
+  * Added Vcs-Bzr to control.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Tue, 01 Jun 2010 14:46:07 +0200
+
+clasp (1.3.3-2) lucid; urgency=low
+
+  * Moved to Ubuntu PPA.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Wed, 26 May 2010 00:15:33 +0200
+
+clasp (1.3.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Fri, 09 Apr 2010 05:43:57 +0200
+
+clasp (1.3.2-2) unstable; urgency=low
+
+  * Added gringo to Suggests.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Sat, 06 Mar 2010 11:18:26 +0100
+
+clasp (1.3.2-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Thomas Krennwallner <tkren@kr.tuwien.ac.at>  Thu, 04 Mar 2010 19:31:51 +0100

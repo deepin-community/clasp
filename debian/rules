@@ -1,0 +1,59 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# use custom hardening config flags for compiling clasp
+CONFIG=hardening
+CONFIGPARMS = -DLIB_POTASSCO_BUILD_APP=OFF -DCLASP_BUILD_TESTS=ON -DLIB_POTASSCO_BUILD_TESTS=ON -DCLASP_BUILD_EXAMPLES=ON
+TOPBUILDDIR = build.dir/$(CONFIG)_mt
+
+#
+# export CXXFLAGS and LDFLAGS for cmake
+#
+# default to -O3 -Wall -DNDEBUG and enable all hardening flags
+#
+DEB_CXXFLAGS_MAINT_APPEND = -O3 -Wall
+DEB_CPPFLAGS_MAINT_APPEND = -DNDEBUG
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+
+# force g++-10
+export CXX = g++-10
+export CC = gcc-10
+# inject CPPFLAGS to CXXFLAGS
+CXXFLAGS += $(CPPFLAGS)
+
+%:
+	dh $@
+
+# configure with cmake
+override_dh_auto_configure:
+	dh_auto_configure --builddirectory=$(TOPBUILDDIR) -- $(CONFIGPARMS)
+
+# build with cmake in $(TOPBUILDDIR)
+override_dh_auto_build:
+	dh_auto_build --builddirectory=$(TOPBUILDDIR)
+
+# install clasp binary built in $(TOPBUILDDIR)
+override_dh_auto_install:
+	dh_auto_install --builddirectory=$(TOPBUILDDIR)
+
+override_dh_auto_clean:
+	dh_auto_clean --builddirectory=$(TOPBUILDDIR)
+
+# run and output test results
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	dh_auto_test --builddirectory=$(TOPBUILDDIR) &&\
+		{ EXIT_CODE=$$? ; echo "Exit $$EXIT_CODE" ; test -d $(TOPBUILDDIR)/Testing/Temporary && tail -n +1 -v -- $(TOPBUILDDIR)/Testing/Temporary/* ; exit $$EXIT_CODE ; } ||\
+		{ EXIT_CODE=$$? ; echo "Exit $$EXIT_CODE" ; test -d $(TOPBUILDDIR)/Testing/Temporary && tail -n +1 -v -- $(TOPBUILDDIR)/Testing/Temporary/* ; exit $$EXIT_CODE ; }
+endif
+
+# install CHANGES as changelog
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES
