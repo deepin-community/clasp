@@ -22,9 +22,6 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
-# force g++-10
-export CXX = g++-10
-export CC = gcc-10
 # inject CPPFLAGS to CXXFLAGS
 CXXFLAGS += $(CPPFLAGS)
 

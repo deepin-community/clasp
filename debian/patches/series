@@ -1,2 +1,3 @@
 clasp-manpage.patch
 link-libatomic-check-gcc.patch
+use-system-catch-for-glibc-2.34-compat.patch

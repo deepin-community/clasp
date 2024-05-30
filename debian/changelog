@@ -1,3 +1,19 @@
+clasp (3.3.5-4.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Build using the default gcc. (Closes: #1023678)
+
+ -- Adrian Bunk <bunk@debian.org>  Sat, 19 Nov 2022 12:10:37 +0200
+
+clasp (3.3.5-4.1) unstable; urgency=medium
+
+  * Non-maintainer upload
+
+  [ Lukas Märdian ]
+  * Use system-provided catch (Closes: #1004022)
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Wed, 28 Sep 2022 23:21:38 +0200
+
 clasp (3.3.5-4) unstable; urgency=medium
 
   * Bug fix: "non-standard gcc/g++ used for build (gcc-9)", thanks to
